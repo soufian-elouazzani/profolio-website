@@ -75,6 +75,46 @@ To get started with your own portfolio website:
 
 5. Open [http://localhost:3000](http://localhost:3000) in your web browser to see the website.
 
+## ✅ Test Locally Before Deploy
+
+Use these commands to make sure the project is healthy before pushing:
+
+```bash
+npm install
+npm run lint
+npm run build
+npm run dev
+```
+
+- `npm run lint` checks code quality
+- `npm run build` validates production build
+- `npm run dev` lets you verify behavior at `http://localhost:3000`
+
+## 🤖 GitHub Actions CI/CD
+
+This repo includes a workflow at `.github/workflows/ci-cd.yml` that:
+
+- runs lint + build on every pull request
+- runs lint + build on pushes to `main`
+- deploys to Vercel automatically after CI passes on `main`
+
+### Required GitHub repository secrets
+
+Add these in **GitHub -> Settings -> Secrets and variables -> Actions**:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+- `NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID`
+- `NEXT_PUBLIC_RESUME_LINK`
+- `GOOGLE_FORM_LINK`
+- `GOOGLE_FORM_FIELD_ID_NAME`
+- `GOOGLE_FORM_FIELD_ID_EMAIL`
+- `GOOGLE_FORM_FIELD_ID_MESSAGE`
+- `GOOGLE_FORM_FIELD_ID_SOCIAL`
+
+If you already configured environment variables directly in Vercel, you can keep that setup and only add the Vercel secrets above.
+
 ## 🎨 Customization
 
 Easily personalize your portfolio using the configuration files below:
